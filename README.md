@@ -1,16 +1,37 @@
-# flutter_application_1
+Technologies Used :
 
-A new Flutter project.
+Flutter: For cross-platform mobile development.
 
-## Getting Started
+Dart: As the programming language for building the app.
 
-This project is a starting point for a Flutter application.
+Font Awesome: For a variety of stylish icons.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Installation
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+To run the app locally, follow these steps:
+
+1. **Clone the repository:**
+
+
+         git clone https://github.com/yourusername/travel-mobile-app.git
+
+
+
+2. **Navigate to the project directory:**
+   
+        cd travel-mobile-app
+
+
+
+4. **Install the required dependencies:**
+
+       
+        flutter pub get
+
+
+
+4.**Run the app:**
+
+
+      flutter run
