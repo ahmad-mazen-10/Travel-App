@@ -57,9 +57,23 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - images/dahab2.jpg
+    - images/aswan2.jpg
+    - images/loxur3.jpg
+    - images/hurgada.jpg
+    - images/sharm1.jpg
+    - images/marsaalam3.jpg
+    - images/golf beach.png
+    - images/marriott hotel.jpg
+    - images/Steigenberger Al Dau Beach Hotel.png
+    - images/Steigenberger Nile Palace Luxor.jpg
+    - images/camel-ride-giza-pyramids.jpg
+    - images/hot-air-balloon-ride-over-luxor-valley-kings.jpg
+    - images/cruise-lake-nasser-to-abu-simbel.jpg
+    - images/aswan-on-felucca.jpg
+    - images/marsaalam3.jpg
+    - images/Luxor.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
