@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/database.dart';
 import 'package:flutter_application_1/destination_screen.dart';
+import 'package:flutter_application_1/hotel_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatefulWidget {
@@ -63,8 +64,11 @@ class _HomePageState extends State<HomePage> {
                   final destination = destinations[index];
                   return GestureDetector(
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                          return DestinationScreen(dest: destination, activities: destination['activities'] ?? []);
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return DestinationScreen(
+                              dest: destination,
+                              activities: destination['activities'] ?? []);
                         }));
                       },
                       child: DestinationCard(destination: destination));
@@ -98,7 +102,13 @@ class _HomePageState extends State<HomePage> {
                 itemCount: hotels.length,
                 itemBuilder: (context, index) {
                   final hotel = hotels[index];
-                  return HotelCard(hotel: hotel);
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => HotelScreen(hotel: hotel)));
+                    },
+                    child: HotelCard(hotel: hotel),
+                  );
                 },
               ),
             ),
@@ -233,7 +243,8 @@ class DestinationCard extends StatelessWidget {
                 width: 180,
                 height: 180,
                 fit: BoxFit.cover,
-                image: AssetImage(destination['imageUrl'] ?? 'images/placeholder.jpg'), // Added a placeholder
+                image: AssetImage(destination['imageUrl'] ??
+                    'images/placeholder.jpg'), // Added a placeholder
               ),
             ),
           ),
@@ -246,30 +257,14 @@ class DestinationCard extends StatelessWidget {
                 Row(
                   children: [
                     const Icon(
-                      Icons.location_on,
+                      FontAwesomeIcons.locationArrow,
+                      size: 10,
                       color: Colors.white,
                     ),
+                    const SizedBox(width: 5),
                     Text(
-                      destination['city'] ?? 'Unknown City',
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.location_searching,
-                      color: Colors.white,
-                    ),
-                    Text(
-                      destination['country'] ?? 'Unknown Country',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
+                      '${destination['city']}, ${destination['country']}',
+                      style: const TextStyle(color: Colors.white),
                     ),
                   ],
                 ),
@@ -306,26 +301,19 @@ class HotelCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Padding(
-                padding: const EdgeInsets.only(top: 30),
+                padding: const EdgeInsets.only(left: 40, top: 30),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      hotel['name'] ?? 'No name available',
+                      '\$${hotel['price']?.toString() ?? 'N/A'} / night',
                       style: const TextStyle(
                           fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      hotel['address'] ?? 'No address available',
+                      hotel['name'] ?? 'No name available',
                       style: const TextStyle(color: Colors.grey),
                       maxLines: 2,
-                    ),
-                    Text(
-                      '\$${hotel['price']?.toString() ?? 'N/A'} / night',
-                      style: const TextStyle(
-                          color: Colors.green,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16),
                     ),
                   ],
                 ),
@@ -349,16 +337,14 @@ class HotelCard extends StatelessWidget {
                 ],
                 color: Colors.white),
           ),
-          Hero(
-            tag: hotel['imageUrl'],
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image(
-                width: 180,
-                height: 180,
-                fit: BoxFit.cover,
-                image: AssetImage(hotel['imageUrl'] ?? 'images/placeholder.jpg'), // Added a placeholder
-              ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Image(
+              width: 180,
+              height: 180,
+              fit: BoxFit.cover,
+              image: AssetImage(hotel['imageUrl'] ??
+                  'images/placeholder.jpg'), // Added a placeholder
             ),
           ),
           Positioned(
@@ -370,15 +356,14 @@ class HotelCard extends StatelessWidget {
                 Row(
                   children: [
                     const Icon(
-                      Icons.location_on,
+                      FontAwesomeIcons.mapMarkerAlt,
+                      size: 10,
                       color: Colors.white,
                     ),
+                    const SizedBox(width: 5),
                     Text(
-                      hotel['name'] ?? 'Unknown Hotel',
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
+                      hotel['address'] ?? 'No address available',
+                      style: const TextStyle(color: Colors.white),
                     ),
                   ],
                 ),
@@ -386,26 +371,6 @@ class HotelCard extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class TellUsWidget extends StatelessWidget {
-  const TellUsWidget({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(left: 10, right: 100),
-      child: Text(
-        'Tell us about your destinations in Egypt!!',
-        style: TextStyle(
-          fontSize: 30,
-          fontWeight: FontWeight.w600,
-        ),
       ),
     );
   }

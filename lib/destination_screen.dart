@@ -16,6 +16,7 @@ class DestinationScreen extends StatelessWidget {
       body: SafeArea(
         // Add SafeArea for better layout
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Add a back button and destination details
             Row(
@@ -33,7 +34,35 @@ class DestinationScreen extends StatelessWidget {
                 ),
               ],
             ),
-
+            // Display the destination image and description
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image(
+                    width: double.infinity,
+                    height: 200,
+                    fit: BoxFit.cover,
+                    image: AssetImage(
+                        dest['imageUrl'] ?? 'images/placeholder.jpg'),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    dest['description'] ?? 'No description available',
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                ],
+              ),
+            ),
+            // Display a list of activities
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: Text(
+                'Activities',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
             Expanded(
               child: activities.isEmpty
                   ? const Center(child: Text('No activities available'))
@@ -46,7 +75,7 @@ class DestinationScreen extends StatelessWidget {
                           children: [
                             Container(
                               decoration: BoxDecoration(
-                                color: Colors.green[400],
+                                color: Colors.white30,
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               height: 190,
@@ -69,6 +98,47 @@ class DestinationScreen extends StatelessWidget {
                               ),
                             ),
                             // Add more activity details here if needed
+                            Positioned(
+                              top: 20,
+                              left: 160,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    activity['name'] ?? 'No name available',
+                                    style: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black),
+                                  ),
+                                  Text(
+                                    activity['type'] ?? 'No type available',
+                                    style: const TextStyle(
+                                        fontSize: 14, color: Colors.black),
+                                  ),
+                                  Text(
+                                    'Price: \$${activity['price'] ?? 'N/A'}',
+                                    style: const TextStyle(
+                                        fontSize: 14, color: Colors.black),
+                                  ),
+                                  Row(
+                                    children: List.generate(
+                                      activity['rating'] ?? 0,
+                                      (index) => const Icon(
+                                        Icons.star,
+                                        size: 14,
+                                        color: Colors.amber,
+                                      ),
+                                    ),
+                                  ),
+                                  Text(
+                                    'Start Times: ${activity['startTimes']?.join(', ') ?? 'N/A'}',
+                                    style: const TextStyle(
+                                        fontSize: 14, color: Colors.black),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ],
                         );
                       },

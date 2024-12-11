@@ -45,6 +45,50 @@ List destinations = [
   },
 ];
 
+
+
+List hotels = [
+  {
+    'imageUrl': 'images/golf beach.png',
+    'name': 'golf beach',
+    'address': 'Cairo medle town St',
+    'price': 175,
+  },
+  {
+    'imageUrl': 'images/marriott hotel.jpg',
+    'name': 'marriott hotel ',
+    'address': 'Cairo Mariontyia way st',
+    'price': 300,
+  },
+  {
+    'imageUrl': 'images/Steigenberger Al Dau Beach Hotel.png',
+    'name': 'Steigenberger Al Dau Beach Hotel',
+    'address': 'ElGona beach',
+    'price': 240,
+  },
+  {
+    'imageUrl': 'images/Steigenberger Nile Palace Luxor.jpg',
+    'name': 'Steigenberger Nile',
+    'address': 'Nile Palace Luxor',
+    'price': 250,
+  },
+  {
+    'imageUrl': 'images/premier-le-reve-hotel.jpg',
+    'name': 'Premier-le-reve',
+    'address': 'Nile Palace Aswan',
+    'price': 450,
+  },
+];
+
+
+
+
+
+
+
+
+
+
 List activities = [
   {
     'imageUrl': 'images/camel-ride-giza-pyramids.jpg',
@@ -96,35 +140,3 @@ List activities = [
   },
 ];
 
-List hotels = [
-  {
-    'imageUrl': 'images/golf beach.png',
-    'name': 'golf beach',
-    'address': 'Cairo medle town St',
-    'price': 175,
-  },
-  {
-    'imageUrl': 'images/marriott hotel.jpg',
-    'name': 'marriott hotel ',
-    'address': 'Cairo Mariontyia way st',
-    'price': 300,
-  },
-  {
-    'imageUrl': 'images/Steigenberger Al Dau Beach Hotel.png',
-    'name': 'Steigenberger Al Dau Beach Hotel',
-    'address': 'ElGona beach',
-    'price': 240,
-  },
-  {
-    'imageUrl': 'images/Steigenberger Nile Palace Luxor.jpg',
-    'name': 'Steigenberger Nile',
-    'address': 'Nile Palace Luxor',
-    'price': 250,
-  },
-  {
-    'imageUrl': 'images/premier-le-reve-hotel.jpg',
-    'name': 'Premier-le-reve',
-    'address': 'Nile Palace Aswan',
-    'price': 450,
-  },
-];
